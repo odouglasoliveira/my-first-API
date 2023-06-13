@@ -23,4 +23,11 @@ app.get('/teams/:id', (req, res) => {
   return res.status(201).json({ team });
 });
 
+app.post('/teams', (req, res) => {
+  const newTeam = { ...req.body };
+  teams.push(newTeam);
+
+  res.status(201).json({ team: newTeam });
+});
+
 module.exports = app;
